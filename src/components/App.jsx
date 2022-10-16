@@ -4,6 +4,7 @@ import { ContactForm } from './ContactForm/ContactForm';
 import { Filter } from './Filter/Filter';
 
 import { ContactList } from './ContactList/ContactList';
+import { Title, Wrapper } from './App.styled';
 
 export class App extends Component {
   state = {
@@ -63,18 +64,18 @@ export class App extends Component {
     const filteredContacts = this.getFilteredContacts();
 
     return (
-      <div>
-        <h2>Phonebook</h2>
+      <Wrapper>
+        <Title>Phonebook</Title>
         <ContactForm onSubmit={this.addContact} />
 
-        <h2>Contacts</h2>
+        <Title>Contacts</Title>
 
         <Filter value={this.state.filter} onChange={this.changeFilter} />
         <ContactList
           filteredContacts={filteredContacts}
           onDelete={this.deleteContact}
         />
-      </div>
+      </Wrapper>
     );
   }
 }
